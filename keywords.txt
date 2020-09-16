@@ -1,0 +1,69 @@
+#######################################
+# Syntax Coloring Map For DFRobot_AS7341
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_AS7341	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+readID	KEYWORD2
+setAtime	KEYWORD2
+setAstep	KEYWORD2
+setAGAIN	KEYWORD2
+setWtime	KEYWORD2
+startMeasure	KEYWORD2
+readSpectralDataOne	KEYWORD2
+readSpectralDataTwo	KEYWORD2
+readFlickerData	KEYWORD2
+enableLed	KEYWORD2
+controlLed	KEYWORD2
+measureComplete	KEYWORD2
+setThreshold	KEYWORD2
+getLowThreshold	KEYWORD2
+getHighThreshold	KEYWORD2
+getIntSource	KEYWORD2
+clearInterrupt	KEYWORD2
+interrupt	KEYWORD2
+enableSpectralInterrupt	KEYWORD2
+setIntChannel	KEYWORD2
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+eNormal	LITERAL1
+eCH_F1	LITERAL1
+eCH_F2	LITERAL1
+eCH_F3	LITERAL1
+eCH_F4	LITERAL1
+eCH_F5	LITERAL1
+eCH_F6	LITERAL1
+eCH_F7	LITERAL1
+eCH_F8	LITERAL1
+eCH_CLEAR	LITERAL1
+eCH_NIR	LITERAL1
+eF1F4ClearNIR	LITERAL1
+eF5F8ClearNIR	LITERAL1
+
+ADF1	LITERAL1
+ADF2	LITERAL1
+ADF3	LITERAL1
+ADF4	LITERAL1
+ADCLEAR	LITERAL1
+ADNIR	LITERAL1
+ADF5	LITERAL1
+ADF6	LITERAL1
+ADF7	LITERAL1
+ADF8	LITERAL1
+ADCLEAR	LITERAL1
+ADNIR	LITERAL1
+
+eSpm	LITERAL1
+eSyns	LITERAL1
+eSynd	LITERAL1
