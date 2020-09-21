@@ -32,15 +32,12 @@ void loop(void){
   uint8_t freq = 0;
   //Read the value of register flicker, through which the flicker frequency of the light source can be predicted
   freq = as7341.readFlickerData();
-  //Serial.println(freq);
-  if (freq == 44) {
+  if (freq == 1) {
     Serial.println("Unknown frequency");
-  } else if (freq == 45) {
-    Serial.println("50 Hz ");
-
-  } else if (freq == 46) {
-    Serial.println("60 Hz ");
+  } else if (freq == 0) {
+    Serial.println("No flicker");
   } else {
-    Serial.println("An unknown error");
+    Serial.print(freq);
+    Serial.println("Hz");
   }
 }

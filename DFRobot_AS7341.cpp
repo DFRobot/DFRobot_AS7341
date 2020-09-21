@@ -114,15 +114,15 @@ void DFRobot_AS7341::config(eMode_t mode)
     case eSpm : {
       data = (data & (~3)) | eSpm;
     };
-	break;
+    break;
     case eSyns : {
       data = (data & (~3)) | eSyns;
     };
-	break;
+    break;
     case eSynd : {
       data = (data & (~3)) | eSynd;
     };
-	break;
+    break;
     default : break;
   }
   writeReg(REG_AS7341_CONFIG,&data,1);
@@ -247,6 +247,19 @@ uint8_t DFRobot_AS7341::readFlickerData(){
   delay(600);
   readReg(REG_AS7341_STATUS,&flicker,1);
   enableFlickerDetection(false);
+  switch(flicker){
+    case 44:
+      flicker = 1;
+      break;
+    case 45:
+      flicker = 50;
+      break;
+    case 46:
+      flicker = 60;
+      break;
+    default:
+      flicker = 0;
+  }
   return flicker;
 }
 
@@ -338,7 +351,7 @@ void DFRobot_AS7341::enableLed(bool on){
 }
 
 void DFRobot_AS7341::setBank(uint8_t addr){
-	uint8_t data=0;
+    uint8_t data=0;
   readReg(REG_AS7341_CFG_0,&data,1);
   if(addr == 1){
   
