@@ -36,7 +36,7 @@ void setup(void)
 //  //Enable LED
 //  //as7341.enableLed(true);
 //  //Set pin current to control brightness (1~20 corresponds to current 4mA,6mA,8mA,10mA,12mA,......,42mA)
-//  //as7341.controlLed(1);
+//  //as7341.controlLed(10);
 }
 void loop(void)
 {
