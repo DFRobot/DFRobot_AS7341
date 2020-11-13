@@ -1,7 +1,7 @@
 # DFRobot_AS7341
 
 We live in a colorful world, but how much do you really know about color? You eyes may deceive you, while the sensors don’t lie. This AS7341sensor can tell you the truth about color. <br> 
-AS7341 Visible Light Sensor employs the new generation of AS7341 spectral sensor IC launched by the well-known ARM company. The sensor features eight channels for the visible light, one channel for near-IR, and one channel without a filter. Also it integrates a dedicated channel to detect ambient light flicker. Besides that, this sensor comes with 6 independent 16-bit ADC channels for data processing in parallel. The two on-board extra-bright LEDs can supply light in dark environment.
+AS7341 Visible Light Sensor employs the new generation of AS7341 spectral sensor IC launched by the well-known AMS company. The sensor features eight channels for the visible light, one channel for near-IR, and one channel without a filter. Also it integrates a dedicated channel to detect ambient light flicker. Besides that, this sensor comes with 6 independent 16-bit ADC channels for data processing in parallel. The two on-board extra-bright LEDs can supply light in dark environment.
 
 ## Table of Contents
 
