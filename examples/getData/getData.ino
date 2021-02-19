@@ -27,9 +27,9 @@ void setup(void)
     delay(1000);
   }
 //  //Integration time = (ATIME + 1) x (ASTEP + 1) x 2.78µs
-//  //Set the value of register ATIME, through which the value of Integration time can be calculated. The value represents the time that must be spent during data reading.
+//  //Set the value of register ATIME(1-255), through which the value of Integration time can be calculated. The value represents the time that must be spent during data reading.
 //  as7341.setAtime(29);
-//  //Set the value of register ASTEP, through which the value of Integration time can be calculated. The value represents the time that must be spent during data reading.
+//  //Set the value of register ASTEP(0-65534), through which the value of Integration time can be calculated. The value represents the time that must be spent during data reading.
 //  as7341.setAstep(599);
 //  //Set gain value(0~10 corresponds to X0.5,X1,X2,X4,X8,X16,X32,X64,X128,X256,X512)
 //  as7341.setAGAIN(7);
