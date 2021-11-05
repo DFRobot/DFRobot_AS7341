@@ -1,15 +1,14 @@
 /*!
  * @file synsMode.ino
- * @brief Read spectrum data by syns mode. The chip's measurement function needs to be activated by a level pulse for each measurement.
-    The chip will enter idle mode when the measurement is done, which could save power.
+ * @brief Read spectrum data by syns mode. 
+ * @details The chip's measurement function needs to be activated by a level pulse for each measurement.
+ * @n The chip will enter idle mode when the measurement is done, which could save power.
  * 
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
- 
+ * @license     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2020-07-16
- * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_AS7341
  */
 #include "DFRobot_AS7341.h"

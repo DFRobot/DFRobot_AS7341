@@ -1,14 +1,14 @@
 /*!
  * @file getData.ino
- * @brief Read the values of 10 optical channels of the AS7341 spectral sensor, the more light of a certain wavelength of the light source,
+ * @brief acquisition of spectral data
+ * @details Read the values of 10 optical channels of the AS7341 spectral sensor, the more light of a certain wavelength of the light source,
  * the greater the corresponding channel value.
  *
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
+ * @license     The MIT license (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2020-07-16
- * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_AS7341
  */
 #include "DFRobot_AS7341.h"

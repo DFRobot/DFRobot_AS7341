@@ -1,13 +1,12 @@
 /*!
  * @file getFlicker.ino
  * @brief Read the flicker frequency of light source 
- * 
+ * @details Can distinguish the light source flashing at 50HZ or 60HZ frequency
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
+ * @license     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2020-07-16
- * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_AS7341
  */
 #include "DFRobot_AS7341.h"

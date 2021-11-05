@@ -1,13 +1,15 @@
 /*!
  * @file DFRobot_AS7341.h
  * @brief Define the infrastructure of the DFRobot_AS7341 class
- * @n Drive AS7341-IC-integrated spectrum sensor  
+ * @details Drive AS7341-IC-integrated spectrum sensor  
+ * @n AS7341 is a 11 channel visible light sensor, which can measure
+ * @n 8 wavelengths of visible light, suitable for color detection,
+ * @n  light color temperature detection and other scenes 
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
+ * @License     The MIT License (MIT)
  * @author [fengli](li.feng@dfrobot.com)
  * @version  V1.0
  * @date  2020-07-16
- * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_AS7341
  */
 
@@ -121,9 +123,11 @@ public:
 #define ERR_OK             0      //OK
 #define ERR_DATA_BUS      -1      //Data Bus error
 #define ERR_IC_VERSION    -2      //Chip version mismatch 
+
   /**
-    The measurement mode of spectrum snesor 
-  */
+   * @enum eMode_t
+   * @brief The measurement mode of spectrum snesor 
+   */
   typedef enum {
     eSpm = 0,/**<SPM>*/
     eSyns = 1,/**<SYNS*/
@@ -131,15 +135,18 @@ public:
     
   }eMode_t;
   /**
-    The modes of channel mapping 
-  */
+   * @enum eChChoose_t
+   * @brief The modes of channel mapping 
+   */
   typedef enum{
     eF1F4ClearNIR,/**<Map the values of the registers of 6 channels to F1,F2,F3,F4,clear,NIR>*/
     eF5F8ClearNIR,/**<Map the values of the registers of 6 channels to F5,F6,F7,F8,clear,NIR>*/
   }eChChoose_t;
+  
   /**
-    Represent 10 different photodiode measurement channels 
-  */
+   * @enum eChannel_t
+   * @brief represent 10 different photodiode measurement channels 
+   */
   typedef enum{
     eCH_F1,
     eCH_F2,
@@ -152,9 +159,11 @@ public:
     eCH_CLEAR,
     eCH_NIR,
   }eChannel_t;
+  
   /**
-    The values of the registers of 6 channels under eF1F4ClearNIR
-  */
+   * @struct sModeOneData_t
+   * The values of the registers of 6 channels under eF1F4ClearNIR
+   */
   typedef struct{
     uint16_t ADF1;/**<F1 diode data>*/
     uint16_t ADF2;/**<F2 diode data>*/
@@ -164,8 +173,9 @@ public:
     uint16_t ADNIR;/**<NIR diode data>*/
   }sModeOneData_t;
   /**
-    The values of the registers of 6 channels under eF5F8ClearNIR
-  */
+   * @struct sModeTwoData_t
+   * The values of the registers of 6 channels under eF5F8ClearNIR
+   */
   typedef struct{
     uint16_t ADF5;/**<F5 diode data>*/
     uint16_t ADF6;/**<F6 diode data>*/
@@ -175,75 +185,130 @@ public:
     uint16_t ADNIR;/**<NIR diode data>*/
   }sModeTwoData_t;
   
-  /*!
+  /**
+   * @fn DFRobot_AS7341
    * @brief Construct the function
    * @param pWire IC bus pointer object and construction device, can both pass or not pass parameters, Wire in default.
    */
   DFRobot_AS7341(TwoWire *pWire = &Wire); 
 
   /**
+   * @fn begin
    * @brief init function
-   * @return Return 0 if the initialization succeeds, otherwise return non-zero and error code.
+   * @param mode data read mode
+   * @return return 0 if the initialization succeeds, otherwise return non-zero and error code.
    */
-  int begin(eMode_t mode =eSpm);
+  int begin(eMode_t mode = eSpm);
 
   /**
-   * @brief Read sensor ID
-   * @return The read sensor ID, one byte 
+   * @fn readID
+   * @brief read sensor ID
+   * @return the read sensor ID, one byte 
    */
   uint8_t readID();
   
   /**
+   * @fn setAtime
    * @brief Set the value of register ATIME, through which the value of Integration time can be calculated. The value represents the time that must be spent during data reading.
-   * @param The value of register ATIME
+   * @param value the value of register ATIME
    */
   void setAtime(uint8_t value);
-  void setAstep(uint16_t value);
+ 
   /**
+   * @fn setAstep
+   * @brief Sets the integration time per step
+   * @param value the value of register Astep
+   */
+  void setAstep(uint16_t value);
+
+  /**
+   * @fn setAGAIN
    * @brief Set gain value (0~10 corresponds to X0.5,X1,X2,X4,X8,X16,X32,X64,X128,X256,X512)
-   * @param The value of register CFG1
+   * @param value The value of register CFG1
    */
   void setAGAIN(uint8_t value);
 
   /**
+   * @fn setWtime
    * @brief Set Set the value of WTIME, through which wite time can be calculated. The value represents the time that
    * @ must be spent during data reading.
-   * @param The value of WTIME
+   * @param value The value of WTIME
    */
   void setWtime(uint8_t value);
   
   /**
+   * @fn startMeasure
    * @brief Start spectrum measurement 
-   * @param Channel mapping mode: 1.eF1F4ClearNIR,2.eF5F8ClearNIR
+   * @param mode Channel mapping mode: 1.eF1F4ClearNIR,2.eF5F8ClearNIR
    */
   void startMeasure(eChChoose_t mode);
+
   /**
+   * @fn readSpectralDataOne
    * @brief Read the value of sensor data channel 0~5, under eF1F4ClearNIR
-   * @return The data of sModeOneData_t
+   * @return The value of channel  ADF1,ADF2,ADF3,ADF4,ADCLEAR and ADNIR
    */
+  
   sModeOneData_t readSpectralDataOne();
   
   /**
+   * @fn readSpectralDataTwo
    * @brief Read the value of sensor data channel 0~5, under eF5F8ClearNIR
-   * @return The data of sModeTwoData_t
+   * @return The value of channel ADF5,ADF6,ADF7,ADF8,ADCLEAR and ADNIR
    */
   sModeTwoData_t readSpectralDataTwo();
   
   /**
+   * @fn readFlickerData
    * @brief Read the value of register flicker, through which the flicker frequency of the light source can be predicted
    * @return The data of register flicker
    */
   uint8_t readFlickerData();
+ 
   /**
+   * @fn measureComplete
    * @brief Set measurement mode 
-   * @param mode
+   * @return Boolean type, the result of measure
+   * @retval true measurement completed
+   * @retval false Incomplete measurement
    */
-  void config(eMode_t mode);
   bool measureComplete();
+  
+  /**
+   * @fn setGpioMode
+   * @brief Set the electrical parameters of GPIO pins 
+   * @param mode INPUT and OUTPUT
+   */
   void setGpioMode(uint8_t mode);
+
+  /**
+   * @fn enableSpectralMeasure
+   * @brief enable spectral measurement
+   * @param on true：enable，false：disable   
+   */
   void enableSpectralMeasure(bool on);
+  
+  /**
+   * @fn enableLed
+   * @brief whether to use LED lights
+   * @param on true：yes，false：no  
+   */
   void enableLed(bool on);
+  
+  /**
+   * @fn controlLed
+   * @brief Set the brightness level of led  
+   * @param current brightness level (1~20 corresponds to current 4mA,6mA,8mA,10mA,12mA,......,42mA)
+   */
   void controlLed(uint8_t current);
+
+
+private:
+  float getWtime();
+  void config(eMode_t mode);
+  void clearInterrupt();
+  float getIntegrationTime();
+  uint16_t getChannelData(uint8_t channel);
   bool interrupt();
   void setThreshold(uint16_t lowTh,uint16_t highTh);
   uint16_t getLowThreshold();
@@ -252,13 +317,6 @@ public:
   void setIntChannel(uint8_t channel);
   void setAPERS(uint8_t num);
   uint8_t getIntSource();
-  
-  void clearInterrupt();
-private:
-  float getWtime();
-  float getIntegrationTime();
-  uint16_t getChannelData(uint8_t channel);
-  
   
   void enableAS7341(bool on);
   

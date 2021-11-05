@@ -1,16 +1,14 @@
-
 /*!
- * @file DFRobot_AS7341.h
- * @brief Define the infrastructure and the implementation of the underlying method of the DFRobot_AS7341 class, 
- * 
- * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
- * @licence     The MIT License (MIT)
- * @author [fengli](li.feng@dfrobot.com)
- * @version  V1.0
- * @date  2020-07-16
- * @get from https://www.dfrobot.com
- * @url https://github.com/DFRobot/DFRobot_AS7341
- */
+ *@file DFRobot_AS7341.cpp
+ *@brief Define the basic structure of class DFRobot_AS7341, the implementation of the basic methods
+ *@copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ *@license     The MIT license (MIT)
+ *@author [fengli](li.feng@dfrobot.com)
+ *@version  V1.0
+ *@date  2020-07-16
+ *@url https://github.com/DFRobot/DFRobot_AS7341
+*/
+ 
 #include "DFRobot_AS7341.h"
 
 
@@ -21,7 +19,6 @@ DFRobot_AS7341::DFRobot_AS7341(TwoWire *pWire)
 } 
 int DFRobot_AS7341::begin(eMode_t mode) 
 {
-  uint8_t buffer[2];
   _pWire->begin();
   _pWire->beginTransmission(_address);
   if(_pWire->endTransmission() != 0){
@@ -242,7 +239,7 @@ uint8_t DFRobot_AS7341::readFlickerData(){
   enableSpectralMeasure(true);
   uint8_t retry = 100;
 
-  if(retry == 0) DBG(" data access error");
+  if(retry == 0) DBG(" data access error")
   enableFlickerDetection(true);
   delay(600);
   readReg(REG_AS7341_STATUS,&flicker,1);
@@ -514,6 +511,7 @@ float DFRobot_AS7341::getIntegrationTime(){
   else if(data == 255){
     
   }
+  return 0;
 }
 
 void DFRobot_AS7341::setWtime(uint8_t value)
