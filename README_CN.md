@@ -1,31 +1,33 @@
 # DFRobot_AS7341
+- [English Version](./README.md)
+
 您对颜色了解多少？您想了解真正的颜色吗？眼睛可能会欺骗您，但是传感器不会。AS7341可见光传感器可以告诉您最真实的颜色。<br>
 AS7341可见光传感器采用业内知名的ams公司推出的新一代AS7341光谱传感IC。该传感器有8个可见光通道、1个闪烁通道、1个NIR通道和1个未加滤光片的通道。该传感器拥有6个独立的16位ADC通道，可以并行的处理数据。该传感器板载了两颗高亮LED，可在暗光环境下进行补光。<br>
 
 ![Product Image](./resources/images/SEN0365.png)
 
-## Product Link (https://www.dfrobot.com.cn/goods-2931.html)
+## 产品链接 (https://www.dfrobot.com.cn/goods-2931.html)
     SEN0365: Fermion: AS7341可见光谱传感器
 	
-## Table of Contents
+## 目录
 
-* [Summary](#summary)
-* [Installation](#installation)
-* [Methods](#methods)
-* [Compatibility](#compatibility)
-* [History](#history)
-* [Credits](#credits)
+  * [概述](#概述)
+  * [库安装](#库安装)
+  * [方法](#方法)
+  * [兼容性](#兼容性)
+  * [历史](#历史)
+  * [创作者](#创作者)
 
-## Summary
+## 概述
 1.Read the value of each channel<br>
 2.Detect whether the frequency of light source flickering is 50HZ or 60HZ
 
 
-## Installation
+## 库安装
 
 To use this library, first download the library file, paste it into the \Arduino\libraries directory, then open the examples folder and run the demo in the folder.
 
-## Methods
+## 方法
 ```C++
  /**
    * @brief init function
@@ -93,7 +95,7 @@ To use this library, first download the library file, paste it into the \Arduino
   void controlLed(uint8_t current);
 ```
 
-## Compatibility
+## 兼容性
 
 MCU                | Work Well    | Work Wrong   | Untested    | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
@@ -105,11 +107,11 @@ ESP8266        |      √       |              |             |
 M0        |      √       |              |             | 
 
 
-## History
+## 历史
 
 - 2020/07/31  - Version 1.0.0 released.
 
-## Credits
+## 创作者
 
 Written by fengli(li.feng@dfrobot.com), 2020.7.31 (Welcome to our [website](https://www.dfrobot.com/))
 
